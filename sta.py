@@ -144,7 +144,7 @@ rpc = pypr.Presence(AppConf['UserData']['AppID'])
 rpc.connect()
 
 def starter():
-       rpc.update(state="Just started!", details="Connected to Discord", large_image="chill_zone")
+       rpc.update(state=ruLang['discordRPC']['startState'], details=ruLang['discordRPC']['startDetails'], large_image="chill_zone")
        print("")
        print("╔============================================================================╗")
        print("║ ChillZone.exe                                                  [ - ] [ x ] ║")
