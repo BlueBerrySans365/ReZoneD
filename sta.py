@@ -39,7 +39,8 @@ if os.path.isfile("config.json") == False:
                      },
               },
               "AppData": {
-                     "version": f"{version}"
+                     "version": f"{version}",
+                     "lang": None
               }
        }
        with open("config.json", "w") as outfile:
@@ -58,49 +59,86 @@ else:
 
 
 
-if AppConf['UserData']['FirstRun'] == True:
-       print("Oh UwU \nLooks like this is your first run owo.\nLet's configure your account before starting. :3")
-       NicknameStartUp = input("Your nickname? | [>] ")
-       TagQStartUp = input("Do you want to make tag? [Y/N] | [>] ")
-       if TagQStartUp == "Y" or TagQStartUp == "y":
-              TagStartUp = input("Your Tag? (4 numbers) | [>] ")
-       elif TagQStartUp == "N" or TagQStartUp == "n":
-              TagStartUp = None
-       AppIDQStartUp = input("Do you want to use custom Discord Rich Presence? (Y/N) | [>] ")
-       if AppIDQStartUp == "Y" or AppIDQStartUp == "y":
-              AppIDStartUp = input("Your AppID? | [>] ")
-       elif AppIDQStartUp == "N" or AppIDQStartUp == "n":
-              AppIDStartUp = "619183056636477466"
-       
-       data = {
-              "UserData": {
-                     "Nickname": NicknameStartUp,
-                     "ColoredT": "False",
-                     "Tag": TagStartUp,
-                     "AppID": AppIDStartUp,
-                     "FirstRun": False
-              },
-              "ButtonsData": {
-                     "inUse": False,
-                     "button1": {
-                            "lable": "",
-                            "url": ""
-                     },
-                     "button2": {
-                            "lable": "",
-                            "url": ""
-                     },
-              },
-              "AppData": {
-                     "version": f"{version}"
-              }
-       }
+with open('./lang/ru_RU.json', encoding="utf-8") as jsonfile:
+    ruLang = json.load(jsonfile)
 
-       with open("config.json", "w") as outfile:
-              json.dump(data, outfile)
-       print("Successfully saved!")
-       with open('config.json') as json_file:
-            AppConf = json.load(json_file)
+
+
+if AppConf['UserData']['FirstRun'] == True:
+	lang = input("Select language\n1 - Ru, 2 - En\nYour choice | [>] ")
+	if lang == "1":
+		print("Вы выбрали русский язык!")
+		lang = "ru"
+	if lang == "2":
+		print("You have chosen English!")
+		lang = "en"
+	if lang != "en" and lang != "ru":
+		print("The language is selected incorrectly! I'll put it in English.")
+		lang = "en"
+	if lang == "ru":
+		print(ruLang["starter"]["startStarter"])
+		NicknameStartUp = input(ruLang['starter']['nicknameStarter'])
+		TagQStartUp = input(ruLang['starter']['tagQStarter'])
+		if TagQStartUp.lower() == "y":
+			TagStartUp = input(ruLang['starter']['tagStarter'])
+		elif TagQStartUp.lower() == "n":
+			TagStartUp = None
+		AppIDQStartUp = input(ruLang['starter']['AppIDQStarter'])
+		if AppIDQStartUp.lower() == "y":
+			AppIDStartUp = input(ruLang['starter']['AppIDStarter'])
+		elif AppIDQStartUp.lower() == "n":
+			AppIDStartUp = "619183056636477466"
+
+
+
+
+	if lang == "en":
+		print("Oh UwU \nLooks like this is your first run owo.\nLet's configure your account before starting. :3")
+		NicknameStartUp = input("Your nickname? | [>] ")
+		TagQStartUp = input("Do you want to make tag? [Y/N] | [>] ")
+		if TagQStartUp.lower() == "y":
+			TagStartUp = input("Your Tag? (4 numbers) | [>] ")
+		elif TagQStartUp.lower() == "n":
+			TagStartUp = None
+		AppIDQStartUp = input("Do you want to use custom Discord Rich Presence? (Y/N) | [>] ")
+		if AppIDQStartUp.lower() == "y":
+			AppIDStartUp = input("Your AppID? | [>] ")
+		elif AppIDQStartUp.lower() == "n":
+			AppIDStartUp = "619183056636477466"
+   
+	data = {
+		"UserData": {
+				"Nickname": NicknameStartUp,
+				"ColoredT": "False",
+				"Tag": TagStartUp,
+				"AppID": AppIDStartUp,
+				"FirstRun": False
+			},
+		"ButtonsData": {
+				"inUse": False,
+				"button1": {
+					"lable": "",
+					"url": ""
+				},
+				"button2": {
+					"lable": "",
+					"url": ""
+				},
+		},
+		"AppData": {
+				"version": f"{version}",
+				"lang": lang
+		}
+	}
+
+	with open("config.json", "w") as outfile:
+		json.dump(data, outfile)
+	if lang == "ru":
+		print(ruLang['systemStart']['successSConf'])
+	else:
+		print("Successfully saved!")
+	with open('config.json') as json_file:
+		AppConf = json.load(json_file)
 
 rpc = pypr.Presence(AppConf['UserData']['AppID'])
 rpc.connect()
@@ -186,5 +224,3 @@ except KeyboardInterrupt:
        clear()
        print("{=][ Exiting... ][=}")
        sys.exit()
-
-
