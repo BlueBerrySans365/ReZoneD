@@ -2,13 +2,12 @@ import json
 import requests
 import time
 import os
-import coloredSigns as cS
+#import coloredSigns as cS
 import pypresence as pypr
 import sys
 import pymongo
 
-db_client = pymongo.MongoClient("mongodb://clientCZrpc:mHKmb4TxcjnTPns6NL57YdwYvr@clientCZrpc/clientCZrpc?ssl=true&replicaSet=atlas-192qex-shard-0&authSource=admin&retryWrites=true&w=majority")
-db = db_client.clientCZrpc
+
 
 
 version = "1.0.0b"
@@ -27,6 +26,17 @@ if os.path.isfile("config.json") == False:
                      "Tag": None,
                      "AppID": "None",
                      "FirstRun": True
+              },
+              "ButtonsData": {
+                     "inUse": False,
+                     "button1": {
+                            "lable": "",
+                            "url": ""
+                     },
+                     "button2": {
+                            "lable": "",
+                            "url": ""
+                     },
               },
               "AppData": {
                      "version": f"{version}"
@@ -70,6 +80,17 @@ if AppConf['UserData']['FirstRun'] == True:
                      "AppID": AppIDStartUp,
                      "FirstRun": False
               },
+              "ButtonsData": {
+                     "inUse": False,
+                     "button1": {
+                            "lable": "",
+                            "url": ""
+                     },
+                     "button2": {
+                            "lable": "",
+                            "url": ""
+                     },
+              },
               "AppData": {
                      "version": f"{version}"
               }
@@ -85,7 +106,7 @@ rpc = pypr.Presence(AppConf['UserData']['AppID'])
 rpc.connect()
 
 def starter():
-       rpc.update(pid=4712,state="Just started!", details="Connected to Discord", large_image="chill_zone")
+       rpc.update(state="Just started!", details="Connected to Discord", large_image="chill_zone")
        print("")
        print("╔============================================================================╗")
        print("║ ChillZone.exe                                                  [ - ] [ x ] ║")
