@@ -11,5 +11,11 @@
         "tagStarter": "Какой будет ваш тег? (4 цифры) | [>] ",
         "AppIDQStarter": "Вы хотите использовать настраиваемый Discord Rich Presence? (Y - Да / N - Нет) | [>] ",
         "AppIDStarter": "Ваш AppID? | [>] "
+    },
+    "systemStart": {
+        "preparingApp": "Подготавливаем программу...",
+        "successConf": "Успешно настроили!",
+        "loadedConf": "Загрузили config.json",
+        "successSConf": "Успешно сохранено!"
     }
 }
