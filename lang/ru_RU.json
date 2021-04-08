@@ -3,5 +3,13 @@
     "discordRPC": {
         "startState": "Запущен!",
         "startDetails": "Присоединён к Discord!"
+    },
+    "starter": {
+        "startStarter": "Ох UwU\nКажись это ваш первый запуск программы. owo\nДавайте настроим ваш аккаунт перед началом. :3",
+        "nicknameStarter": "Ваш никнейм? | [>] ",
+        "tagQStarter": "Вы хотите поставить себе тег? (Y - Да / N - Нет) | [>] ",
+        "tagStarter": "Какой будет ваш тег? (4 цифры) | [>] ",
+        "AppIDQStarter": "Вы хотите использовать настраиваемый Discord Rich Presence? (Y - Да / N - Нет) | [>] ",
+        "AppIDStarter": "Ваш AppID? | [>] "
     }
 }

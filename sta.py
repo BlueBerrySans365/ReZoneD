@@ -67,9 +67,9 @@ if AppConf['UserData']['FirstRun'] == True:
        elif TagQStartUp == "N" or TagQStartUp == "n":
               TagStartUp = None
        AppIDQStartUp = input("Do you want to use custom Discord Rich Presence? (Y/N) | [>] ")
-       if TagQStartUp == "Y" or TagQStartUp == "y":
+       if AppIDQStartUp == "Y" or AppIDQStartUp == "y":
               AppIDStartUp = input("Your AppID? | [>] ")
-       elif TagQStartUp == "N" or TagQStartUp == "n":
+       elif AppIDQStartUp == "N" or AppIDQStartUp == "n":
               AppIDStartUp = "619183056636477466"
        
        data = {
