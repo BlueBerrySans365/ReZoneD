@@ -1,6 +1,7 @@
-# ReZoneD engine
-------
-Made by NickSaltFox(u) & DevilFireFox
+# ReZoneD engine 
+------  
+[![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)  
+Made by NickSaltFox(u) & DevilFireFox  
 Remade of chill-zone-DRPC.  
 
 ## Description
@@ -11,7 +12,7 @@ Currently in development.
 ## Using
 ------
 In 1.0.0b:
- - [![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence) == 4.2.0 
+ - pypresence == 4.2.0 
 
 ## To-do
 ------
